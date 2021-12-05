@@ -21,7 +21,7 @@ data class SecondScreen(val sameIntParam: Int) : DefaultFragmentKey(),
 
     override fun bindServices(serviceBinder: ServiceBinder) {
         with(serviceBinder) {
-            serviceBinder.add(SecondFragmentViewModel(getKey(), backstack, lookup()))
+            add(SecondFragmentViewModel(getKey(), backstack, lookup()))
         }
     }
 

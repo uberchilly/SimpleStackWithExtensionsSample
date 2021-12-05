@@ -19,7 +19,7 @@ data class FirstScreen(val userName: String) : DefaultFragmentKey(),
 
     override fun bindServices(serviceBinder: ServiceBinder) {
         with(serviceBinder) {
-            serviceBinder.add(FirstFragmentViewModel(getKey(), backstack))
+            add(FirstFragmentViewModel(getKey(), backstack))
         }
     }
 
