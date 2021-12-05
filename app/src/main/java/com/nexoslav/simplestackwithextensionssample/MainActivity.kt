@@ -3,6 +3,7 @@ package com.nexoslav.simplestackwithextensionssample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nexoslav.simplestackwithextensionssample.start.StartScreen
+import com.zhuinden.simplestack.GlobalServices
 import com.zhuinden.simplestack.History
 import com.zhuinden.simplestack.SimpleStateChanger
 import com.zhuinden.simplestack.StateChange
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity(), SimpleStateChanger.NavigationHandler {
         Navigator.configure()
             .setScopedServices(ServiceProvider())
             .setStateChanger(SimpleStateChanger(this))
+            .setGlobalServices(
+                GlobalServices.builder()
+                    .addService("appContext", applicationContext)
+                    .build()
+            )
             .install(this, findViewById(R.id.container), History.of(StartScreen()))
     }
 

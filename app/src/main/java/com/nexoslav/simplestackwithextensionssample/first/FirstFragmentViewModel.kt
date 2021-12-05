@@ -1,12 +1,16 @@
 package com.nexoslav.simplestackwithextensionssample.first
 
+import android.app.Application
 import android.util.Log
 import com.nexoslav.simplestackwithextensionssample.second.SecondScreen
-import com.nexoslav.simplestackwithextensionssample.third.ThirdScreen
 import com.zhuinden.simplestack.Backstack
 import com.zhuinden.simplestack.ScopedServices
 
-class FirstFragmentViewModel(private val key: FirstScreen, private val backstack: Backstack) :
+class FirstFragmentViewModel(
+    private val application: Application,
+    private val key: FirstScreen,
+    private val backstack: Backstack
+) :
     ScopedServices.Registered,
     ScopedServices.Activated {
 

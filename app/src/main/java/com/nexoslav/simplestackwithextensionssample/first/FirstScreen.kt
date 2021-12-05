@@ -6,6 +6,7 @@ import com.zhuinden.simplestack.ServiceBinder
 import com.zhuinden.simplestackextensions.fragments.DefaultFragmentKey
 import com.zhuinden.simplestackextensions.services.DefaultServiceProvider
 import com.zhuinden.simplestackextensions.servicesktx.add
+import com.zhuinden.simplestackextensions.servicesktx.lookup
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -19,7 +20,7 @@ data class FirstScreen(val userName: String) : DefaultFragmentKey(),
 
     override fun bindServices(serviceBinder: ServiceBinder) {
         with(serviceBinder) {
-            add(FirstFragmentViewModel(getKey(), backstack))
+            add(FirstFragmentViewModel(lookup("appContext"), getKey(), backstack))
         }
     }
 
